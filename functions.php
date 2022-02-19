@@ -32,7 +32,9 @@ function theme_enqueue_scripts() {
     wp_register_script('bootstrap', 'https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js', array('jquery'));
    wp_enqueue_script( 'bootstrap' );
 }
+if(!is_admin()):
 add_action( 'init', 'theme_enqueue_scripts' );
+endif;
 /* * *********
  * ADDING MENU
  */
