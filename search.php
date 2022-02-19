@@ -18,7 +18,7 @@
             <i class="fa fa-exclamation-triangle"></i> <?php _e ( 'Nothing found matching your serach criteria!', 'wpl22' );?> 
         </h5>
         <div class="pt-5 pb-5">
-            <p><?php __( 'You can try searching again below:', 'wpl22' );?></p>
+            <p><?php  _e( 'You can try searching again below:', 'wpl22' );?></p>
             <?php custom_serach_form();?>  
         </div>
     </div>    

@@ -8,8 +8,8 @@ include('theme-options/themeOptions.php');
 global $options;
 
 /***
- * 
- *
+ * ADDING CSS AND JS 
+ * THE WP WAY
  * */
 
 function theme_enqueue_scripts() {
@@ -23,7 +23,7 @@ function theme_enqueue_scripts() {
     wp_register_style( 'theme-style', get_template_directory_uri().'/inc/theme.css' );
     wp_enqueue_style('theme-style');
 
-    wp_register_style( 'style-css', get_template_directory_uri().'/inc/style.css' );
+    wp_register_style( 'style-css', get_template_directory_uri().'/style.css' );
     wp_enqueue_style('style-css');
     
     //js
@@ -252,13 +252,7 @@ add_filter('wp_page_menu_args', 'childtheme_menu_args');
 
 
 //add_filter('excerpt_more', 'new_excerpt_more');
-///////////////////////////////////
-//// KILL THE ADMIN NAG
-///////////////////////////////////
-//if (!current_user_can('edit_users')) {
-//	add_action('init', create_function('$a', "remove_action('init', 'wp_version_check');"), 2);
-//	add_filter('pre_option_update_core', create_function('$a', "return null;"));
-//}
+
 ////////////////////////////
 ////||UPLOAD LOGO
 ////////////////////////////
@@ -307,9 +301,6 @@ function encode_code_in_comment($source) {
 }
 
 add_filter('pre_comment_content', 'encode_code_in_comment');
-
-
-
 
 //
 function show_phone() {
@@ -417,37 +408,6 @@ function new_excerpt_more( $more ) {
 add_filter('excerpt_more', 'new_excerpt_more');
 
 //add_filter('excerpt_more', 'new_excerpt_more');
-///////////////////////////////////
-//// KILL THE ADMIN NAG
-///////////////////////////////////
-//if (!current_user_can('edit_users')) {
-//	add_action('init', create_function('$a', "remove_action('init', 'wp_version_check');"), 2);
-//	add_filter('pre_option_update_core', create_function('$a', "return null;"));
-//}
-////////////////////////////
-////||UPLOAD LOGO
-////////////////////////////
-//function themeslug_theme_customizer( $wp_customize ) {
-/* First, we'll create a new section for our logo upload. Note that the description will not be displayed when using the Theme Customizer; it is simply used for the section heading's title attribute. */
-/* $wp_customize->add_section( 'themeslug_logo_section' , array(
-  'title'       => __( 'Logo', 'themeslug' ),
-  'priority'    => 30,
-  'description' => 'Upload a logo to replace the default site name and description in the header',
-  ) ); */
-/* Next, we register our new setting. It doesn't get any easier than this: */
-//$wp_customize->add_setting( 'themeslug_logo' );
-/* Lastly, we tell the Theme Customizer to let us use an image uploader for setting our logo: */
-/* $wp_customize->add_control( new WP_Customize_Image_Control( $wp_customize, 'themeslug_logo', array(
-  'label'    => __( 'Logo', 'themeslug' ),
-  'section'  => 'themeslug_logo_section',
-  'settings' => 'themeslug_logo',
-  ) ) ); */
-
-//}
-//CALLING THE FUNCTION
-//add_action('customize_register', 'themeslug_theme_customizer');
-/////////////////////////////////////////
-
 /***
  * Set post views count using post meta, NOTE: BETA VERSION NEEDS IMPROVEMENT
  * ****/ 
@@ -465,12 +425,9 @@ function the_post_views() {
       $count++;
       update_post_meta($postID, $countKey, $count);
   }
-  	
      
 	$views = get_post_meta($postID , $countKey, true);  
 echo $views ;
-
-	
 	
 }
 
