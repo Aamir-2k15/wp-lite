@@ -13,7 +13,7 @@
         <!-- Main Stylesheet File -->
         <?php wp_head();?>
   </head>
-  <body>
+  <body <?php body_class(); ?>>
   <header>
     <!-- Navigation -->
     <nav class="navbar fixed-top navbar-expand-lg navbar-dark bg-dark fixed-top">
